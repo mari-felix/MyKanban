@@ -1,0 +1,303 @@
+:root {
+    --primary-color: rgb(0, 132, 255);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ddd;
+
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px;
+}
+
+button.primary {
+    border: none;
+    background-color: var(--primary-color);
+    color:#fff;
+    font-size: 16px;
+    padding: 9px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    justify-content: right;
+}
+
+#Assignees {
+    display: flex;
+}
+
+#CreateTask {
+    display: flex;
+}
+
+#Board {
+    display: none;
+}
+
+#CreateAssignee {
+    display: none;
+}
+
+.container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.container .column {
+    width: 258px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .column .head {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.container .column .body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.container .column .body .card {
+    background-color: #eee;
+    border-radius: 7px;
+    border: 0.0001px solid lightslategray;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .column .body .card .info {
+    overflow-wrap: normal;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.table {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    width: auto; /* Largura automática para ajuste de conteúdo */
+}
+
+.table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.info:hover {
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Altera o cursor ao passar o mouse */
+}
+
+
+#modalTask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#modalTask .box {
+    background-color: #fff;
+    width: 500px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+#modalTask .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#modalTask .box .head span {
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    
+}
+
+#modalTask .box .head button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+#modalTask .box .form {
+    padding: 20px;
+}
+
+#modalTask .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#modalTask .box .form textarea {
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+#modalTask .box .form select {
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#modalTask .box .form span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+#taskShowTitle {
+    display: none;
+}
+
+#modalAss {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#modalAss .box {
+    background-color: #fff;
+    width: 500px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+#modalAss .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#modalAss .box .head span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    
+}
+
+#modalAss .box .head button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+#modalAss .box .form {
+    padding: 20px;
+}
+
+#modalAss .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#modalAss .box .form textarea {
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+#modalAss .box .form select {
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#closeButton {
+    cursor: pointer;
+}
+
+#editionModeAssBtn {
+    display: none;
+}
+
+#creationModeAssBtn {
+    display: block;
+}
+
+#creationModeTitleAss {
+    display: block;
+}

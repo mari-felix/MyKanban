@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftKanban</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <!-- Barra de navegação -->
+    <div class="header">
+        <h1>SoftKanban</h1>
+        <button class="primary" id="CreateTask" onclick="openModalCreateTask()">+ Task</button>
+        <button class="primary" id="CreateAssignee" onclick="openModalAssignees()">+ Assignee</button> 
+        <button class="primary" id="Assignees" onclick="openAssignees()">/º\ Assignees</button>
+        <button class="primary" id="Board" onclick="openBoard()">[]Board</button>
+    </div>
+
+    <!-- Colunas KanBan -->
+    <div class="container">
+        <div class="column" data-column="ToDo" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>To Do</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+        <div class="column" data-column="InProgress" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>In Progress</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+        <div class="column" data-column="Done" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="head">
+                <span>Done</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela Assignees -->
+    <div class="table">
+        <table class="grid-fino">
+            <thead>
+                <tr>
+                    <th>K-iD</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Job</th>
+                </tr>
+            </thead>
+            <tbody id="PeopleGrid">
+                <!-- Linhas da tabela serão adicionadas dinamicamente aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para os tasks -->
+    <div id="modalTask">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTitle">New task</span>
+                <span id="editionModeTitle">Edit task</span>
+                <button id="closeButton" onclick="closeModal()">X</button>
+            </div>
+            
+
+            <div class="form">
+
+                <input type="hidden" id="idInput">
+
+                <div class="form-group">
+                    <label for="Column">Status</label>
+                    <select id="column">
+                        <option value="ToDo">To Do</option>
+                        <option value="InProgress">In Progress</option>
+                        <option value="Done">Done</option>
+                        <option value="3">Archived</option>
+                    </select>                    
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Title">Titulo</label>
+                    <textarea id="Title" rows="1"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Description">Descrição</label>
+                    <textarea id="Description" rows="3"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Assignee">Encarregado</label>
+                        <select id="Assignee">
+                            <option>------------------</option>
+                        
+                        </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Priority">Prioridade</label>
+                    <select id="Priority">
+                        <option value="Low">Baixa</option>
+                        <option value="Medium">Media</option>
+                        <option value="High">Alta</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="ExpectedDue">Prazo</label>
+                    <input type="date" id="ExpectedDue">
+                        
+                    </input>
+                </div>
+                    <br>
+                <button class="primary" id="creationModeBtn" onclick="createTask()">Create</button>
+                <button class="primary" onclick="updateTask()" id="editionModeBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para os assignees -->
+    <div id="modalAss">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTitleAss">New Assignee</span>
+                <span id="editionModeTitleAss">Edit Assignee</span>
+                <button id="closeButton" onclick="closeModal()">X</button>
+            </div>
+            
+
+            <div class="form">
+
+                <input type="hidden" id="idInput">
+
+                <div class="form-group">
+                    <label for="Name">Nome</label>
+                    <textarea id="Name" rows="1"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <textarea id="Email" rows="1"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Job">Cargo</label>
+                    <select id="Job">
+                        <option>-----</option>
+                        <option>Developer</option>
+                        <option>Manager</option>
+                        <option>Sales</option>
+                    </select>
+                </div>
+                <br>
+                <button class="primary" id="creationModeAssBtn" onclick="createAssignee()">Create</button>
+                <button class="primary" onclick="updateAssignee()" id="editionModeAssBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./moment.min.js"></script>
+    <script src="./scripts-copy.js"></script>
+    <script>
+        generateCards();
+    </script>
+</body>
+</html>
