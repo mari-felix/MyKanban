@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftKanbanAPI", "SoftKanbanAPI.csproj", "{BDDA4835-E463-4273-84D4-B0B36C2B7FE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDDA4835-E463-4273-84D4-B0B36C2B7FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDA4835-E463-4273-84D4-B0B36C2B7FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDDA4835-E463-4273-84D4-B0B36C2B7FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDDA4835-E463-4273-84D4-B0B36C2B7FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52179492-D89F-447E-9145-25569ED542FB}
+	EndGlobalSection
+EndGlobal
